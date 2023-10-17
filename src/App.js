@@ -7,15 +7,15 @@ export default function App() {
 
   function handleClick(result) {
     setCode(code + result);
-    console.log(code);
+    // console.log(code);
   }
   return (
     <div className="container">
       <div className="button-container">
         <button
           type="button"
-          onClick={() => {
-            handleClick("🐡");
+          onClick={(event) => {
+            handleClick(event.target.textContent);
           }}
         >
           <span role="img" aria-label="Pufferfish">
@@ -52,10 +52,7 @@ export default function App() {
       >
         Reset
       </button>
-
-      {code === validCode && <p>Valid code!</p>}
+      <>{code === validCode && <p>Valid code!</p>}</>
     </div>
   );
 }
-
-//🐡🐠🐋
